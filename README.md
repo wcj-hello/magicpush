@@ -28,29 +28,19 @@
   </p>
 </div>
 
-## 交流&打赏
+## 打赏
 
 <table>
   <tr>
     <td align="center">
-      <a href="https://qm.qq.com/q/wWS78gByRa">点此加入QQ群</a>
+      <span>支付宝</span>
       <br>
-      <img src="./public/image/qq-group.jpg" alt="qq-group" height="256px">
+      <img src="./public/image/alipay.png" alt="alipay" height="256px">
     </td>
     <td align="center">
-      <a href="https://pd.qq.com/s/eveskv89x">点此加入QQ频道</a>
+      <span>微信</span>
       <br>
-      <img src="./public/image/qq-channel.jpg" alt="qq-channel" height="256px">
-    </td>
-    <td align="center">
-      <a href="https://pd.qq.com/s/eveskv89x">支付宝</a>
-      <br>
-      <img src="./public/image/alipay.png" alt="qq-channel" height="256px">
-    </td>
-    <td align="center">
-      <a href="https://pd.qq.com/s/eveskv89x">微信</a>
-      <br>
-      <img src="./public/image/wechat.png" alt="qq-channel" height="256px">
+      <img src="./public/image/wechat.png" alt="wechat" height="256px">
     </td>
   </tr>
 </table>
@@ -116,7 +106,7 @@
 | **微信生态** | 微信龙虾机器人、元宝 Bot、企业微信机器人、企业微信应用、微信公众号、Server酱、息知 |
 | **即时通讯** | Telegram Bot、飞书机器人、钉钉机器人、QQ机器人 |
 | **App推送** | PushPlus、WxPusher、Bark、Meow、PushMe、ntfy、PushDeer、iGot |
-| **通用协议** | Webhook、SMTP邮件、Gotify |
+| **通用协议** | Webhook、SMTP邮件、Gotify、MQTT |
 | **其他** | 群晖 Chat、ShowDoc、小爱音箱 |
 
 > 📖 各渠道详细配置说明及频率限制请查看：[推送渠道配置文档](https://www.160621.xyz/magicpush/guide/channels/rate-limits.html)
@@ -145,6 +135,8 @@
 - 限流触发时自动记录日志，方便排查异常请求
 
 > **注意：** 预构建的 Docker 镜像（`magiccode1412/magicpush:latest`）为 All-in-One 模式（Express 直接提供静态文件），不包含 Nginx，因此仅具备 Express 层的两层限流。如需启用 Nginx 层的兜底限流，请使用 `docker-compose up -d` 自行构建前后端分离镜像。
+
+> **部署要求：** 生产环境必须将后端部署在**反向代理（Nginx / 宝塔 / 雷池 / Lucky 等）之后**，且后端端口不对公网直连（网络隔离是防止 IP 伪造的真正边界）。真实客户端 IP 由 `TRUST_PROXY` 环境变量控制（默认信任单反代），多跳或接入 CDN 的场景请参考 [Docker 部署 - 反向代理部署](https://www.160621.xyz/magicpush/guide/deploy/docker.html)。
 
 ## 🛠️ 技术栈
 

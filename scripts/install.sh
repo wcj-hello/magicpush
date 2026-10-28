@@ -1,4 +1,4 @@
-cd server
+cd apps/server
 pnpm i
 cp .env.example .env
 cd ..
